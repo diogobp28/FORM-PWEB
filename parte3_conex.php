@@ -1,10 +1,14 @@
-<!DOCTYPE html><html><head><title>Usuários</title><head></html>
+<!DOCTYPE html>
+<html>
+    <head><title>USUÁRIOS</title><head>
+</html>
+
 <?php
 	
     include ('parte4user.php');
 	
 
-	if($_REQUEST["nome"]=='' or $_REQUEST["usuario"]== '' or $_REQUEST["email"]== '' or $_REQUEST["senha"]==''){
+	if($_REQUEST["nome"]=='' or $_REQUEST["usuario"]== '' or $_REQUEST["telefone"]== '' or $_REQUEST["senha"]==''){
 		echo 'INFORMAÇÕES INVÁLIDAS! TENTE NOVAMENTE.';
 	}else{
 		$senhaCrip = md5($_REQUEST["senha"]);
@@ -20,7 +24,7 @@
 			
             $nome = $pessoa->getNome();
 			$user = $pessoa->getUser();
-			$email = $pessoa->getTelefone();
+			$telefone = $pessoa->getTelefone();
 			$senha = $pessoa->getSenha();
 			
             $stmt = $conn->prepare('INSERT INTO USUARIOS VALUES(?,?,?,?)');
